@@ -42,51 +42,22 @@ document.querySelector("#btn-AC").addEventListener('click', (e) => {
 
 let strNums = "";
 let strFuns = "";
+let expression = "";
+let result = 0;
 document.querySelector("#btn-equal").addEventListener('click', (e) => {
     //console.log(arrayValues);
-    strNums = arrayValues.join('').split(/[x+-/]/);
-    strFuns = arrayValues.join('').split(/\d+/).join('').split('');
+    // strNums = arrayValues.join('').split(/[x+-/]/);
+    // strFuns = arrayValues.join('').split(/\d+/).join('').split('');
     
     // console.log(strNums,strFuns);
     // str = str.split(/\d+/gm);
     // console.log(str);
-    calculate(strNums,strFuns)
+    expression = document.querySelector("#display").innerText;
+    expression = expression.replace(/[^()-/\d\/x+.^]/g, "");
+    expression = expression.replace(/x/g, "*");
+    expression = expression.replace(/\^/g, "**");
+    result = eval(expression);
+
     insertResult(result);
 });
-
-
-let result = 0;
-function calculate(...params) {
-    result = 0;
-    console.log(params[0], params[1]);
-    let a = params[1].length-1;
-    let times = 0;
-    for (let i = params[0].length - 1; i > 0; i--) {
-        console.log(i, params[0][i]);
-        if (times == 0) {
-            let penUltNum = params[0][i-1]*1;
-            let ultNum = params[0][i]*1;
-            result += ultNum + penUltNum;
-            times++;
-        } else {
-            let penUltNum = params[0][i-1]*1;
-            result += penUltNum;
-        }
-
-        console.log(result);
-        
-        //console.log('entré');
-        //console.log(params[0][i],params[1][i], params[0][i-1]);
-        //for (let j = params[1].length - 1; j >= 0; j--) {
-            //console.log("entré x2");
-            // if (params[1][a] == '+'){// && a >= 0) {
-            //     console.log("entré x3");
-            //     console.log(result, params[0][i]*1)//, params[0][i-1]*1);
-            //     result += params[0][i]*1 + params[0][i-1]*1;
-            //     a--;
-            // }   
-        //}     
-    }
-    return result
-}
 
