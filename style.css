@@ -17,11 +17,20 @@ body{
 }
 
 #display {
-    min-height: 120px;
+    min-height: 60px;
     background-color: #3f3f3f;
     color: whitesmoke;
     font-size: 5vh;
     text-align: end;
+}
+
+#result {
+    min-height: 60px;
+    background-color: #3f3f3f;
+    color: rgb(139, 139, 139);
+    font-size: 4vh;
+    text-align: end;
+    padding: 3vh 1vh;
 }
 
 #buttons {
