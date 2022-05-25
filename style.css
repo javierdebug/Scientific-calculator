@@ -16,29 +16,62 @@ body{
     min-height: 100px;
 }
 
+#main-calc {
+    padding-top: 5vh;
+    /* border: solid #fff; */
+    border-radius: 25px;
+    margin: 30px 800px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
 #display {
     min-height: 60px;
     background-color: #3f3f3f;
     color: whitesmoke;
     font-size: 5vh;
+    padding: 1vh 1vh 0;
     text-align: end;
+    overflow-x: scroll;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
-#result {
+#result{
     min-height: 60px;
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
     font-size: 4vh;
     text-align: end;
-    padding: 3vh 1vh;
+    padding: 2vh 1vh 1vh;
+    overflow-x: scroll;
+}
+
+#historial {
+    background-color: #3f3f3f;
+    color: rgb(139, 139, 139);
+    font-size: 3vh;
+    height: 180px;
+    overflow-y: auto;
+    padding: 1.5vh;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+p {
+    background-color: #3f3f3f;
+    color: rgb(139, 139, 139);
+    font-size: 3vh;
+    padding: 1.0vh;
 }
 
 #buttons {
     color: #fff9f9;
     background-color: #212121;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: 0.5vw;
+    /* max-width: 30vw; */
 }
 
 button {
@@ -48,19 +81,25 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 5vh;
+    font-size: 4.5vh;
     margin: 5px;
     cursor: pointer;
     background-color: #000;
-    border-radius: 45%;
+    border-radius: 10%;
 }
 
 .btn-special {
     color: #000;
     background-color: #029dc4;
+    font-size: 3.2vh;
 }
 
 .btn-rare {
+    font-size: 4.5vh;
     color: #000;
     background-color: aquamarine;
+}
+
+#Del {
+    background-color: maroon;
 }
