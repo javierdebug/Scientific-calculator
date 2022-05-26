@@ -20,7 +20,7 @@ body{
     padding-top: 5vh;
     /* border: solid #fff; */
     border-radius: 25px;
-    margin: 30px 800px;
+    margin: 30px 35vw;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -86,6 +86,12 @@ button {
     cursor: pointer;
     background-color: #000;
     border-radius: 10%;
+    transition: all ease 0.3s;
+}
+
+button:hover {
+    /* background-color: #c4dfc5dd; */
+    opacity: 60%;
 }
 
 .btn-special {
@@ -95,7 +101,7 @@ button {
 }
 
 .btn-rare {
-    font-size: 4.5vh;
+    font-size: 4.0vh;
     color: #000;
     background-color: aquamarine;
 }
