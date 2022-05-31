@@ -10,7 +10,7 @@ body{
     font-size: 20px;
     background-color: #090909;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     min-height: 100px;
@@ -22,7 +22,23 @@ body{
     border-radius: 25px;
     margin: 30px 35vw;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "display display"
+                         "history buttons";
+
+}
+
+.top {
+    grid-area: display;
+    min-height: 60px;
+    background-color: #3f3f3f;
+    margin-bottom: 0;
+    overflow: scroll;
+}
+
+.bottom {
+    overflow: scroll;
+    height: 580px;
 }
 
 #display {
@@ -51,11 +67,12 @@ body{
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
     font-size: 3vh;
-    height: 180px;
-    overflow-y: auto;
+    min-height: 580px;
+    overflow-y: scroll;
     padding: 1.5vh;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
+    grid-area: history;
 }
 
 p {
@@ -72,6 +89,7 @@ p {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     padding: 0.5vw;
     /* max-width: 30vw; */
+    grid-area: buttons;
 }
 
 button {
@@ -108,4 +126,8 @@ button:hover {
 
 #Del {
     background-color: maroon;
+}
+
+br {
+    font-size: 0.25vh;
 }
