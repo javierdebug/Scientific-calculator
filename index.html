@@ -10,8 +10,10 @@
 </head>
 <body>
     <div id="main-calc">
-        <div id="display" contenteditable="false"></div>
-        <section id="result">=</section>
+        <section class="top">
+            <div id="display" contenteditable="true"></div>
+            <section id="result">=</section>
+        </section>
         <div id="buttons">
             <button class="btn btn-rare" id="btn-AC">AC</button>
             <button class="btn btn-special btn-alg">cos</button>
@@ -57,9 +59,10 @@
 
             <button class="btn btn-fun btn-rare" id="btn-equal">=</button>
         </div>
-        <p>Historial:</p>
+        <section class="bottom">
+            <p>Historial:</p>
             <section id="historial"></section>
-        
+        </section>
     </div>
 </body>
 </html>
