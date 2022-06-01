@@ -20,12 +20,12 @@ body{
     padding-top: 5vh;
     /* border: solid #fff; */
     border-radius: 25px;
-    margin: 30px 35vw;
+    /* margin: 30px 35vw; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "display display"
                          "history buttons";
-
+    /* width: 70%; */
 }
 
 .top {
@@ -38,7 +38,9 @@ body{
 
 .bottom {
     overflow: scroll;
-    height: 580px;
+    /* min-height: 580px; */
+    /* width: min(580px, 100%); */
+    /* background-color: #029dc4; */
 }
 
 #display {
@@ -67,12 +69,13 @@ body{
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
     font-size: 3vh;
-    min-height: 580px;
+    height: 580px;
     overflow-y: scroll;
     padding: 1.5vh;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
+    /* border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px; */
     grid-area: history;
+    width: min(580px, 100%);
 }
 
 p {
@@ -87,9 +90,11 @@ p {
     background-color: #212121;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    padding: 0.5vw;
+    /* padding: 0.5vw; */
     /* max-width: 30vw; */
+    /* width: min(580px,70%); */
     grid-area: buttons;
+    /* border: #090909 solid; */
 }
 
 button {
@@ -100,11 +105,12 @@ button {
     text-decoration: none;
     display: inline-block;
     font-size: 4.5vh;
-    margin: 5px;
+    /* margin: 4px; */
     cursor: pointer;
-    background-color: #000;
-    border-radius: 10%;
+    /* border-radius: 10%; */
     transition: all ease 0.3s;
+    background-color: #747474;
+    background-color: #000;
 }
 
 button:hover {
@@ -114,7 +120,8 @@ button:hover {
 
 .btn-special {
     color: #000;
-    background-color: #029dc4;
+    color: #fff;
+    /* background-color: #029dc4; */
     font-size: 3.2vh;
 }
 
