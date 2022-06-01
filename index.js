@@ -38,7 +38,7 @@ document.querySelector("#buttons").addEventListener('click', (e) => {
             arrayValuesCalculate.push('Math.PI');
         } else if (e.target.classList[2] == 'btn-E') {
             arrayValuesCalculate.push('Math.E');
-        }else {
+        } else {
             console.log('I last');
             arrayValuesCalculate.push(e.target.innerText);
         }
@@ -108,34 +108,10 @@ document.querySelector("#btn-equal").addEventListener('click', (e) => {
     // expression = document.querySelector("#display").innerText; //Select the current math expression.
     expression = arrayValuesCalculate.join('');
 
-    // expression = expression.replace(/x/g, "*"); //Replace symbol 'x' with multiplication operator.
-    // expression = expression.replace(/\^/g, "**"); //Replace symbol '^' with exponential operator.
-
-    // expression = expression.replace(/cos/g, "Math.cos("); //Replace cos with Math.cos
-    // expression = expression.replace(/sin/g, "Math.sin("); //Replace sin with Math.sin
-    // expression = expression.replace(/tan/g, "Math.tan("); //Replace tan with Math.tan
-    // expression = expression.replace(/π/g, "Math.PI"); //Replace pi symbol π with Math.PI
-    // // expression = expression.replace(/log/g, "Math.log10"); //Replace log with Math.log10
-    // // expression = expression.replace(/ln/g, "Math.log"); //Replace ln with Math.log
-    // expression = expression.replace(/e/g, "Math.E"); //Replace e with Math.E
-
-    // let matchRegex = /(?<=√)[\w\W]+/g;
-    // found = expression.match(matchRegex); //Find expression inside square root symobl √
-    // //console.log(matchRegex, found);
-    // console.log(expression);
-    // expression = expression.replace(/(?<=√)[\w\W]+/g, `(${found})`); //Add previous expresion found inside parentheses
-    // expression = expression.replace(/√/g, "Math.sqrt"); //Replace √ symbol with Math.sqrt to correctly make the calculation.
-
     found = expression.match(/\d+(?=\()|\d+(?=M)/g); //Find any digits before an 'M' for 'Math' OR before an open parenthesis '('.
     expression = expression.replace(/\d+(?=\()|\d+(?=M)/g, `(${found})*`); //Add previous expression found inside parentheses. This will allow transform '5(2)' to '5*(2)' and '5Math.cos' into '5*Math.cos'
     expression = expression.replace(/\)(?=\d+)/g, ")*"); //Every parentheses before a digit will transform for example: ')3' into ')*3).
     
-    // found = expression.match(/(?<=cos)[\w.\*(+-x\/\)]+|(?<=sin)[\w.\(+-x*\/\)]+|(?<=tan)[\w.\(+-x*\/\)]+/g);
-    // console.log(found, expression);
-    // expression = expression.replace(/(?<=cos)[\w.\*(+-x\/\)]+|(?<=sin)[\w.\(+-x*\/\)]+|(?<=tan)[\w.\(+-x*\/\)]+/g, `(${found})`) //Everything a cos, sin or tan doesn't include parenthesis before value, add them.
-
-    // expression = expression.replace(/(?<=√\d)/g, "(");
-    // expression = expression.replace(/\d/g, "")
     console.log(expression);
 
     calculate(expression); //Eval the math expression.
@@ -147,9 +123,6 @@ document.querySelector("#btn-equal").addEventListener('click', (e) => {
 function calculate(expression) {
     try {
         result = eval(expression);
-        // if (result < 0.000001) {
-        //     result = 0;
-        // }
         return result
     }
     catch(err) {
@@ -168,7 +141,7 @@ function saveToHistorial() {
        
     if (resultH != "Error" && resultH !="undefined" && resultH !="function sqrt() { [native code] }") {
         // document.querySelector("#historial").insertAdjacentHTML("afterbegin", `${equation}${resultH} <br>`);
-        document.querySelector("#historial").insertAdjacentHTML("afterbegin", `<section class='hist ${countHistory}'> ${equation} = ${resultH} </section>`);
+        document.querySelector("#historial").insertAdjacentHTML("afterbegin", `<section class='hist ${countHistory}'> <br> ${equation} = ${resultH} <br> </section>`);
 
         expHistoryArray.push(equation);
         resHistoryArray.push(resultH);
@@ -179,6 +152,7 @@ function saveToHistorial() {
 
 //Clear History memeroy arrays:
 function clearHistory(params) {
+    countHistory = 0; 
     expHistoryArray = [];
     resHistoryArray = [];
 }
@@ -188,12 +162,12 @@ function factorialCalculate(params) {
     
 }
 
-//Return history equation or result to display:
+//Return a previous equation or result to display and work from it:
 document.querySelector('body').addEventListener('click', function (e) {
     if (e.target.classList[0] == 'hist') {
-        // console.log(e.target.classList[1]);
+        //console.log(e.target.classList[1]);
         let historyValue = e.target.classList[1]*1;
-        // console.log(historyValue);
+        //console.log(historyValue);
         let memResult = resHistoryArray[historyValue];
         let memExpr = expHistoryArray[historyValue];
         let memEval = arrayValuesCalculateHistory[historyValue];
