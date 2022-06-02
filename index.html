@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Calculator - JavierD</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
-</head>
-<body>
-    <div id="main-calc">
-        <section class="top">
-            <div id="display" contenteditable="true"></div>
-            <section id="result">=</section>
-        </section>
-        <div id="buttons">
-            <button class="btn btn-rare" id="btn-AC">AC</button>
-            <button class="btn btn-special btn-alg">cos</button>
-            <button class="btn btn-special btn-alg">sin</button>
-            <button class="btn btn-special btn-alg">tan</button>
-            <button class="btn btn-special btn-PI">π</button>
-
-            <button class="btn btn-special">(</button>
-            <button class="btn btn-special">)</button>
-            <button class="btn btn-special btn-alg">ln</button>
-            <button class="btn btn-special btn-alg">log</button>
-            <!-- <button class="btn btn-special">%</button> -->
-            <button class="btn btn-special btn-pow">^</button>
-
-            <button class="btn btn-special">!</button>
-            <button class="btn btn-special btn-exp1 btn-none" id="btn-exp1">x-1</button>
-            <button class="btn btn-special btn-sqrt">√</button>            
-            <button class="btn btn-special btn-E">e</button>
-            <button class="btn btn-special btn-div">/</button>
-            
-            <button class="btn btn-special btn-abs btn-none">|x|</button>
-            <button class="btn btn-num">7</button>
-            <button class="btn btn-num">8</button>
-            <button class="btn btn-num">9</button>            
-            <button class="btn btn-special btn-mult">x</button>
-            
-            <button class="btn btn-special">%</button>
-            <button class="btn btn-num">4</button>
-            <button class="btn btn-num">5</button>
-            <button class="btn btn-num">6</button>
-            <button class="btn btn-special btn-minus">-</button>
-            
-            <button class="btn btn-special btn-rare btn-none">Ans</button>
-            <button class="btn btn-num">1</button>
-            <button class="btn btn-num">2</button>
-            <button class="btn btn-num">3</button>
-            <button class="btn btn-special btn-plus">+</button>
-
-            <button class="btn btn-special btn-rare btn-none" id="clear-mem">C</button>
-            <button class="btn btn-num">0</button>
-            <button class="btn btn-num">.</button>
-            <button class="btn btn-del" id="Del">⬅</button>
-
-            <button class="btn btn-fun btn-rare" id="btn-equal">=</button>
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Scientific Calculator - JavierD</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js" defer></script>
+    </head>
+    <body>
+        <div id="main-calc">
+            <section class="top">
+                <div id="display" contenteditable="true"></div>
+                <section id="result">=</section>
+            </section>
+            <section id="buttons">
+            <div class="top-rows">
+                <button class="btn btn-special btn-rare btn-none" id="clear-mem">C</button>
+                <button class="btn btn-special btn-abs btn-none">|x|</button>
+                <button class="btn btn-special btn-exp3 btn-none">x <sup>3</sup></button>
+                <button class="btn btn-special">%</button>
+                <button class="btn btn-special btn-E">e</button>
+                <button class="btn btn-special">!</button>
+                                
+                <button class="btn btn-special btn-exp1 btn-none" id="btn-exp1">x <sup>-1</sup></button>
+                <button class="btn btn-special btn-sqrt">√</button>    
+                <button class="btn btn-special btn-exp2 btn-none">x<sup>2</sup></button>   
+                <button class="btn btn-special btn-pow">^</button>
+                <button class="btn btn-special btn-alg">log</button>
+                <button class="btn btn-special btn-alg">ln</button>
+                
+                <button class="btn btn-special">(-)</button>
+                <button class="btn btn-special">(</button>
+                <button class="btn btn-special">)</button>
+                <button class="btn btn-special btn-alg">sin</button>
+                <button class="btn btn-special btn-alg">cos</button>
+                <button class="btn btn-special btn-alg">tan</button>
+            </div>
+            <div class="bot-rows">
+                <button class="btn btn-num">7</button>
+                <button class="btn btn-num">8</button>
+                <button class="btn btn-num">9</button>
+                <button class="btn btn-del" id="Del">⬅</button>
+                <button class="btn btn-rare" id="btn-AC">AC</button>
+                
+                <button class="btn btn-num">4</button>
+                <button class="btn btn-num">5</button>
+                <button class="btn btn-num">6</button>
+                <button class="btn btn-special btn-mult">x</button>
+                <button class="btn btn-special btn-div">/</button>
+                
+                <button class="btn btn-num">1</button>
+                <button class="btn btn-num">2</button>
+                <button class="btn btn-num">3</button>
+                <button class="btn btn-special btn-minus">-</button>
+                <button class="btn btn-special btn-plus">+</button>
+                
+                <button class="btn btn-num">0</button>
+                <button class="btn btn-num">.</button>
+                <button class="btn btn-special btn-PI">π</button>
+                <button class="btn btn-special btn-rare2 btn-none">Ans</button>
+                <button class="btn btn-fun btn-rare2" id="btn-equal">=</button>
+            </div>
+            </section>
         <section class="bottom">
-            <p>History:</p>
+            <p> <em> -History- </em> 
+                <br>
+            </p>
             <section id="historial"></section>
         </section>
     </div>
