@@ -46,6 +46,17 @@ document.querySelector("#buttons").addEventListener('click', (e) => {
     if (e.target.classList[2] === 'btn-exp1') {
         arrayValuesCalculate.push('**(-1)');
         insert('⁻¹');        
+        // insert('<sup>-1</sup>');
+    }
+    if (e.target.classList[2] === 'btn-exp2') {
+        arrayValuesCalculate.push('**(2)');
+        insert('²');
+        // insert('<sup>2</sup>');
+    }
+    if (e.target.classList[2] === 'btn-exp3') {
+        arrayValuesCalculate.push('**(3)');
+        insert('³');
+        // insert('<sup>3</sup>');
     }
     if (e.target.classList[2] === 'btn-abs') {
         if (arrayValuesCalculate.length == 0) {
@@ -111,6 +122,9 @@ document.querySelector("#btn-equal").addEventListener('click', (e) => {
     found = expression.match(/\d+(?=\()|\d+(?=M)/g); //Find any digits before an 'M' for 'Math' OR before an open parenthesis '('.
     expression = expression.replace(/\d+(?=\()|\d+(?=M)/g, `(${found})*`); //Add previous expression found inside parentheses. This will allow transform '5(2)' to '5*(2)' and '5Math.cos' into '5*Math.cos'
     expression = expression.replace(/\)(?=\d+)/g, ")*"); //Every parentheses before a digit will transform for example: ')3' into ')*3).
+
+    expression = countParenthesesAndFix(expression);
+
     
     console.log(expression);
 
@@ -131,6 +145,7 @@ function calculate(expression) {
     } //Catch any found error and display 'Error' message.
 }
 
+//Save in History:
 let expHistoryArray = [];
 let resHistoryArray = [];
 let arrayValuesCalculateHistory = [];
@@ -139,9 +154,9 @@ function saveToHistorial() {
     let equation = document.querySelector("#display").innerText;
     let resultH = document.querySelector("#result").innerText.replace(/=/g, "");
        
-    if (resultH != "Error" && resultH !="undefined" && resultH !="function sqrt() { [native code] }") {
+    if (resultH != "Error" && resultH !="undefined" && resultH !="function sqrt() { [native code] }" && resultH != "NaN") {
         // document.querySelector("#historial").insertAdjacentHTML("afterbegin", `${equation}${resultH} <br>`);
-        document.querySelector("#historial").insertAdjacentHTML("afterbegin", `<section class='hist ${countHistory}'> <br> ${equation} = ${resultH} <br> </section>`);
+        document.querySelector("#historial").insertAdjacentHTML("afterbegin", `<section class='hist ${countHistory}'> ${countHistory+1}) ${equation} = ${resultH} </section>`);
 
         expHistoryArray.push(equation);
         resHistoryArray.push(resultH);
@@ -182,4 +197,20 @@ document.querySelector('body').addEventListener('click', function (e) {
 
 function name(params) {
     
+}
+
+function countParenthesesAndFix(expression) {
+    //console.log('here ' + expression.match(/\)/g).length);
+    if (expression.match(/\(/g)) {
+        if (expression.match(/\(/g).length > expression.match(/\)/g).length ) {
+            
+            expression = expression.concat(')');
+            
+            console.log('inside if ' + expression);
+            countParenthesesAndFix(expression);
+        }
+    }
+
+    //console.log('final ' + expression);
+    return expression
 }
