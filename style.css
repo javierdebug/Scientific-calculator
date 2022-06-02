@@ -25,15 +25,18 @@ body{
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "display display"
                          "history buttons";
-    /* width: 70%; */
+    width: 80%;
+    /* height: 900px; */
 }
 
 .top {
     grid-area: display;
-    min-height: 60px;
+    /* min-height: 60px; */
     background-color: #3f3f3f;
     margin-bottom: 0;
     overflow: scroll;
+    font-size: clamp(1.8rem, 3vh, 3rem);
+    height: min(17vh, 17vw);
 }
 
 .bottom {
@@ -41,25 +44,28 @@ body{
     /* min-height: 580px; */
     /* width: min(580px, 100%); */
     /* background-color: #029dc4; */
+    font-size: clamp(1.4rem, 3vh, 1.5rem);
+    height: min(75vh, 75vw);
 }
 
 #display {
-    min-height: 60px;
+    /* min-height: 60px; */
     background-color: #3f3f3f;
     color: whitesmoke;
-    font-size: 5vh;
     padding: 1vh 1vh 0;
     text-align: end;
     overflow-x: scroll;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+    
 }
 
 #result{
-    min-height: 60px;
+    /* min-height: 60px; */
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
-    font-size: 4vh;
+    /* font-size: 4vh;
+    font-size: clamp(1.8rem, 4vh, 3rem); */
     text-align: end;
     padding: 2vh 1vh 1vh;
     overflow-x: scroll;
@@ -68,73 +74,129 @@ body{
 #historial {
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
-    font-size: 3vh;
-    height: 580px;
+    /* font-size: 3vh; */
+    height: min(70vh, 70vw);
     overflow-y: scroll;
     padding: 1.5vh;
     /* border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px; */
     grid-area: history;
-    width: min(580px, 100%);
+    /* width: min(580px, 100%); */
 }
 
 p {
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
-    font-size: 3vh;
+    /* font-size: 3vh; */
     padding: 1.0vh;
+    text-align: center;
 }
 
 #buttons {
+    height: min(75vh, 75vw);
     color: #fff9f9;
     background-color: #212121;
+    background-color: #000;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.1fr 1.8fr;
+    row-gap: 1vw;
     /* padding: 0.5vw; */
     /* max-width: 30vw; */
     /* width: min(580px,70%); */
     grid-area: buttons;
     /* border: #090909 solid; */
+    /* visibility: hidden; */
+}
+
+.top-rows {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.bot-rows {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 button {
     border: none;
     color: white;
-    padding: 10px;
+    /* padding: 0.2vh; */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 4.5vh;
+    /* font-size: 4.5vh; */
+    font-size: clamp(1.5rem, 4.0vw, 2rem);
     /* margin: 4px; */
     cursor: pointer;
-    /* border-radius: 10%; */
+    /* border-radius: 100%; */
     transition: all ease 0.3s;
     background-color: #747474;
     background-color: #000;
+    
 }
 
 button:hover {
-    /* background-color: #c4dfc5dd; */
     opacity: 60%;
+    transform: translateY(2px);
+}
+
+button:active {
+    transform: translateY(2px);
+    opacity: 60%;
+    transition: background 0s;
 }
 
 .btn-special {
     color: #000;
     color: #fff;
     /* background-color: #029dc4; */
-    font-size: 3.2vh;
+    /* font-size: 3.2vh; */
+    font-size: clamp(1rem, 3.2vw, 2rem);
 }
 
 .btn-rare {
-    font-size: 4.0vh;
+    /* font-size: 4.0vh; */
+    font-size: clamp(1.5rem, 4.0vw, 2rem);
     color: #000;
-    background-color: aquamarine;
+    background-color: rgb(128, 206, 180);
 }
 
 #Del {
     background-color: maroon;
 }
 
-br {
-    font-size: 0.25vh;
+.hist {
+    line-height: 2.5rem;
+}
+
+@media (max-width: 600px) {
+    #main-calc{
+        display: grid;
+        grid-template-columns: 1fr;
+        height: max-content;
+        row-gap: 10px;
+        grid-template-areas: 
+            "display"
+            "buttons"
+            "history";
+    }
+    .bottom, #historial {
+        height: 17vh;
+    }
+    .top {
+        height: 15vh;
+    }
+    #buttons {
+        height: 55vh;
+    }
+
+    /* #length, button {
+        max-width: 100%;
+    }
+
+    #footer {
+        width: 60%;
+    } */
+
 }
