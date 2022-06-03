@@ -19,12 +19,13 @@ body{
 #main-calc {
     padding-top: 5vh;
     /* border: solid #fff; */
-    border-radius: 25px;
+    /* border-radius: 25px; */
     /* margin: 30px 35vw; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "display display"
                          "history buttons";
+    row-gap: 5px;
     width: 80%;
     /* height: 900px; */
 }
@@ -36,7 +37,7 @@ body{
     margin-bottom: 0;
     overflow: scroll;
     font-size: clamp(1.8rem, 3vh, 3rem);
-    height: min(17vh, 17vw);
+    min-height: min(15vh, 15vw);
 }
 
 .bottom {
@@ -55,8 +56,9 @@ body{
     padding: 1vh 1vh 0;
     text-align: end;
     overflow-x: scroll;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    /* border-top-left-radius: 25px;
+    border-top-right-radius: 25px; */
+    border-bottom: #000;
     
 }
 
@@ -75,11 +77,12 @@ body{
     background-color: #3f3f3f;
     color: rgb(139, 139, 139);
     /* font-size: 3vh; */
-    height: min(70vh, 70vw);
+    height: min(69vh, 69vw);
     overflow-y: scroll;
     padding: 1.5vh;
-    /* border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px; */
+    /* border: 2px; */
+    /* border-bottom-right-radius: 25px; */
+    border-bottom-left-radius: 2vh;
     grid-area: history;
     /* width: min(580px, 100%); */
 }
@@ -93,7 +96,7 @@ p {
 }
 
 #buttons {
-    height: min(75vh, 75vw);
+    min-height: min(75vh, 75vw);
     color: #fff9f9;
     background-color: #212121;
     background-color: #000;
@@ -126,7 +129,7 @@ button {
     text-decoration: none;
     display: inline-block;
     /* font-size: 4.5vh; */
-    font-size: clamp(1.5rem, 4.0vw, 2rem);
+    font-size: clamp(0.5rem, 4.0vw, 2rem);
     /* margin: 4px; */
     cursor: pointer;
     /* border-radius: 100%; */
@@ -172,24 +175,57 @@ button:active {
 
 @media (max-width: 600px) {
     #main-calc{
+        min-height: min(85vw, 85vh);
         display: grid;
         grid-template-columns: 1fr;
-        height: max-content;
         row-gap: 10px;
         grid-template-areas: 
             "display"
             "buttons"
             "history";
     }
-    .bottom, #historial {
-        height: 17vh;
-    }
-    .top {
+    .bottom {
+        font-size: clamp(0.9rem, 4.0vw, 1rem);;
         height: 15vh;
     }
-    #buttons {
-        height: 55vh;
+    #historial {
+        height: min(15vh,15vw);
     }
+    .top {
+        min-height: min(10vh,10vw);
+        font-size: clamp(0.9rem, 4.0vw, 1rem);;
+    }
+    #buttons {
+        min-height: 60vh;
+    }
+}
+
+@media (max-width:300px) {
+    button, .btn-rare, .btn-special {
+        font-size: clamp(0.5rem, 4.5vw, 2rem);
+    }
+    .bottom {
+        font-size: clamp(0.65rem, 2.0vw, 1rem);
+        height: 10vh;
+    }
+    #historial {
+        height: 20vh;
+    }
+    .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: min(10vh,20vw);
+        font-size: clamp(0.9rem, 4.0vw, 1rem);;
+    }
+    #buttons {
+        min-height: 70vh;
+        row-gap: 0;
+    }
+    #main-calc {
+        row-gap: 0;
+    }
+}
 
     /* #length, button {
         max-width: 100%;

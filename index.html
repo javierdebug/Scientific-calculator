@@ -11,7 +11,7 @@
     <body>
         <div id="main-calc">
             <section class="top">
-                <div id="display" contenteditable="true"></div>
+                <div id="display" contenteditable="false"></div>
                 <section id="result">=</section>
             </section>
             <section id="buttons">
@@ -19,23 +19,23 @@
                 <button class="btn btn-special btn-rare btn-none" id="clear-mem">C</button>
                 <button class="btn btn-special btn-abs btn-none">|x|</button>
                 <button class="btn btn-special btn-exp3 btn-none">x <sup>3</sup></button>
-                <button class="btn btn-special">%</button>
+                <button class="btn btn-special btn-%">%</button>
                 <button class="btn btn-special btn-E">e</button>
-                <button class="btn btn-special">!</button>
+                <button class="btn btn-special btn-fact">!</button>
                                 
                 <button class="btn btn-special btn-exp1 btn-none" id="btn-exp1">x <sup>-1</sup></button>
                 <button class="btn btn-special btn-sqrt">√</button>    
                 <button class="btn btn-special btn-exp2 btn-none">x<sup>2</sup></button>   
-                <button class="btn btn-special btn-pow">^</button>
-                <button class="btn btn-special btn-alg">log</button>
-                <button class="btn btn-special btn-alg">ln</button>
+                <button class="btn btn-special btn-pow btn-none">x<sup>y</sup></button>
+                <button class="btn btn-special btn-alg log10 ">log</button>
+                <button class="btn btn-special btn-alg log">ln</button>
                 
-                <button class="btn btn-special">(-)</button>
+                <button class="btn btn-special btn-sign btn-none">±</button>
                 <button class="btn btn-special">(</button>
                 <button class="btn btn-special">)</button>
-                <button class="btn btn-special btn-alg">sin</button>
-                <button class="btn btn-special btn-alg">cos</button>
-                <button class="btn btn-special btn-alg">tan</button>
+                <button class="btn btn-special btn-alg sin">sin</button>
+                <button class="btn btn-special btn-alg cos">cos</button>
+                <button class="btn btn-special btn-alg tan">tan</button>
             </div>
             <div class="bot-rows">
                 <button class="btn btn-num">7</button>
