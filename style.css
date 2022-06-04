@@ -173,6 +173,12 @@ button:active {
     line-height: 2.5rem;
 }
 
+#clearAll {
+    color: rgb(173, 62, 62);
+    /* font-size: 1.2rem; */
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     #main-calc{
         min-height: min(85vw, 85vh);
@@ -234,5 +240,3 @@ button:active {
     #footer {
         width: 60%;
     } */
-
-}
