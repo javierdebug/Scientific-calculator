@@ -179,7 +179,7 @@ document.querySelector("#btn-AC").addEventListener('click', (e) => {
 })
 
 //Clear history memory: 
-document.querySelector("#clear-mem").addEventListener('click', (e) => {
+document.querySelector("#clearAll").addEventListener('click', (e) => {
     document.querySelector("#historial").innerText = "";
     clearHistory();
 })
